@@ -5,6 +5,7 @@ Detect changepoints in multidimensional angular signals using the Approximate Pa
 The program is written in C++, with a user-selectable interface in either Python or R:
 - [Python](#python)
 - [R](#r)
+- [Julia](#julia)
 
 ---
 
@@ -62,6 +63,32 @@ num_states <- 5
 
 bkps <- apart_rcpp(signal, penalty, num_states)
 print(bkps)
+```
+## Julia
+### Installation
+Going to folder `julia` and create a file named `example.jl`
+### Example
+```julia
+include("apart.jl")
+
+signal = [
+    1.0 0.1;
+    1.2 6.2;
+    0.8 6.1;
+    3.0 2.0;
+    3.2 2.1;
+    2.8 2.0;
+    3.1 1.9;
+    1.0 3.1;
+    1.1 3.0;
+    0.9 3.2
+]
+
+penalty = 0.1
+num_states = 5
+
+bkps = apart(signal, penalty, num_states)
+println("Changepoints: ", bkps)
 ```
 
 ## Analysis figures
